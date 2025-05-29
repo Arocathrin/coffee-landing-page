@@ -1,0 +1,192 @@
+﻿* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #333;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(111, 78, 55, 0.8); /* semi-transparent brown */
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav.menu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 3rem 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.left {
+  flex: 1 1 300px;
+  padding: 1rem;
+  animation: shake 3s ease-in-out infinite;
+}
+
+.left h1 {
+  font-size: 3rem;
+  color: #e91e63; /* pink color */
+  margin-bottom: 1rem;
+}
+
+.left p {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  color: white; /* better visible on bg */
+}
+
+.left button {
+  padding: 0.8rem 1.5rem;
+  background: #e91e63;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.left button:hover {
+  background: #c2185b;
+}
+
+.right {
+  flex: 1 1 400px;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.images-mix {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  max-width: 460px;
+}
+
+.images-mix img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.images-mix img:hover {
+  transform: scale(1.1);
+}
+
+/* Each image shakes individually */
+.shake {
+  animation: shake 3s ease-in-out infinite;
+}
+
+/* Shaking Animation */
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.section {
+  padding: 3rem 2rem;
+  background: rgba(255 255 255 / 0.85);
+  margin-top: 2rem;
+  border-radius: 15px;
+  border-top: 2px solid #ddd;
+  color: #333;
+}
+
+.section h2 {
+  color: #e91e63;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+  nav.menu {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(111, 78, 55, 0.9);
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  #menu-toggle:checked + .menu-icon + nav.menu {
+    display: flex;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .left h1 {
+    font-size: 2.4rem;
+  }
+
+  .images-mix img {
+    width: 100px;
+    height: 100px;
+  }
+}
